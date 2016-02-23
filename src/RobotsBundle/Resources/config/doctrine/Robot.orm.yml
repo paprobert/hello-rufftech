@@ -1,0 +1,35 @@
+RobotsBundle\Entity\Robot:
+    type: entity
+    table: api_robots
+    repositoryClass: RobotsBundle\Repository\RobotRepository
+    gedmo:
+        soft_deleteable:
+            field_name: deletedAt
+            time_aware: false
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            unique: true
+        type:
+            type: string
+            length: 255
+        year:
+            type: smallint
+            length: 4
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        deletedAt:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        preRemove: [ renameDeletedRobot ]

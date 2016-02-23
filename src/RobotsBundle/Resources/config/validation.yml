@@ -1,0 +1,17 @@
+# src/RobotsBundle/Resources/config/validation.yml
+RobotsBundle\Entity\Robot:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: name
+    properties:
+        name:
+            - NotBlank:
+                  message: "Name should not be blank"
+        type:
+            - NotBlank:
+                message: "Type should not be blank"
+        year:
+            - NotBlank:
+                message: "Year should not be blank"
+            - Length:
+                min: 4
+                max: 4

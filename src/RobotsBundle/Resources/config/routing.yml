@@ -1,0 +1,13 @@
+robots_api:
+    resource: "@RobotsBundle/Resources/config/routing/api/robot.yml"
+    prefix:   /api
+
+robots_robot:
+    resource: "@RobotsBundle/Resources/config/routing/robot.yml"
+    prefix:   /
+
+robots_notImplementedt:
+    path:     /{action}
+    defaults: { _controller: RobotsBundle:Robot:notImplemented }
+    requirements:
+        action: .+

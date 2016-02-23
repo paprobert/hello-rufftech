@@ -1,0 +1,53 @@
+#Összes robot lekérése
+robots_api_list:
+    path:     /robots
+    defaults: { _controller: RobotsBundle:Api\Robot:list }
+    methods:  [GET]
+
+#Robotok keresése név alapján
+robots_api_search:
+    path:     /robots/search/{name}
+    defaults: { _controller: RobotsBundle:Api\Robot:search }
+    methods:  [GET]
+
+#Robotok lehetséges típusainak lekérése
+robots_api_filters:
+    path:     /robots/filter
+    defaults: { _controller: RobotsBundle:Api\Robot:filters }
+    methods:  [GET]
+
+#Robotok szűrése típus alapján
+robots_api_filter:
+    path:     /robots/filter/{type}
+    defaults: { _controller: RobotsBundle:Api\Robot:filter }
+    methods:  [GET]
+
+#Robot lekérése ID alapján
+robots_api_get:
+    path:     /robots/{id}
+    defaults: { _controller: RobotsBundle:Api\Robot:get }
+    methods:  [GET]
+    requirements:
+        id: \d+
+
+#Új robot hozzáadása
+robots_api_add:
+    path:     /robots
+    defaults: { _controller: RobotsBundle:Api\Robot:addNew }
+    methods:  [POST]
+
+#Robot adatainak módosítása
+robots_api_update:
+    path:     /robots/{id}
+    defaults: { _controller: RobotsBundle:Api\Robot:update }
+    methods:  [PUT]
+    requirements:
+        id: \d+
+
+#Robot törlése
+robots_api_delete:
+    path:     /robots/{id}
+    defaults: { _controller: RobotsBundle:Api\Robot:delete }
+    methods:  [DELETE]
+    requirements:
+        id: \d+
